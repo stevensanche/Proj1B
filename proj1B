@@ -1,0 +1,31 @@
+#!/bin/bash
+mkdir $1
+cd $1
+
+mkdir dir1
+mkdir dir2
+cd dir2
+touch fileB
+chmod 640 fileB
+echo "Hi" > fileB
+cd .. 
+chmod 755 dir2
+chmod 700 dir1
+cd dir1
+touch fileA
+chmod 600 fileA
+echo "fileA!" > fileA
+cd ..
+cd dir1
+mkdir dir3
+cd dir3
+mkdir dir4
+chmod 500 dir4
+cd ..
+cd dir3
+touch fileC
+chmod 600 fileC
+echo "Bye" > fileC
+cd ..
+chmod 000 dir3
+
